@@ -1,6 +1,9 @@
-Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type, X-Wera-Api-Key"
-Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
-RewriteEngine on
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "x-test-header, Origin, X-Requested-With, Content-Type, Accept"
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule .* / [R=200,L]
 RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
 

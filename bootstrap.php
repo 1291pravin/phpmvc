@@ -42,7 +42,7 @@ class Bootstrap {
 
     public function loadController() {
         $name = $this->controller . "Controller";
-        $file = ROOT . 'Controllers/' . $name . '.php';
+        $file = ROOT . 'controllers/' . ucfirst($name) . '.php';
         if (file_exists($file)) {
             require_once($file);
             $controller = new $name();
